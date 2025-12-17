@@ -151,3 +151,4 @@ function LiveData({ info }) {
 }
 
 export default LiveData;
+//getting live data
