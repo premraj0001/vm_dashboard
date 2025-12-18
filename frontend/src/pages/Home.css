@@ -1,140 +1,126 @@
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+
+html {
+  font-size: 16px; 
 }
 
-body {
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  color: #ffffff;
-  font-size: 1rem; /* Base scale */
-}
 
 .home-container {
   width: 100%;
   height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .header {
   width: 100%;
-  height: 6rem;
-  background-color: #ffffff;
+  height: 10vh;
+  background-color: white;
   display: flex;
-  align-items: center;
 }
 
 .logo-moonrider {
+  height: 100%;
   width: 30%;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .logo-moonrider img {
-  width: 12rem;
-  margin-left: 1.5rem;
+  width: 60%;
+  height: 70%;
+  margin-left: 1vw;
 }
 
 
 .header-content {
+  height: 100%;
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-size: 1.2rem;      
+  word-spacing: 0.3rem;  
+  white-space: nowrap;
 }
 
+
 .gradient-text {
-  font-size: 2.5rem;
+  font-size: 2.5rem; 
   font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+
   background: linear-gradient(90deg, orange, black, green);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
 
 .buttons {
+  height: 100%;
   width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 5%;
 }
 
 .buttons button {
-  padding: 0.75rem 2rem;
-  border-radius: 0.75rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+  width: 35%;
+  height: 40%;
+
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0.8rem;
+
   cursor: pointer;
   background-color: #D98024;
-  color: #ffffff;
+  color: white;
   border: none;
   transition: all 0.3s ease;
 }
 
 .buttons button:hover {
   background-color: rgb(255, 180, 50);
-  transform: translateY(-0.25rem);
-  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
-
+/* ---------- VIDEO ---------- */
 .video-content {
-  width: 100%;
-  height: calc(100% - 6rem);
+  width: 100vw;
+  height: 90vh;
   background-color: black;
 }
 
 .video-content video {
   width: 100%;
-  height: 100%;
+  height: 97%;
   object-fit: contain;
 }
 
 
-@media (max-width: 1024px) {
-  body {
-    font-size: 0.95rem;
-  }
+@media screen 
+  and (min-width: 1600px)
+  and (aspect-ratio: 16 / 9) {
 
-  .gradient-text {
-    font-size: 2.2rem;
-  }
-
-  .buttons button {
-    font-size: 1rem;
-  }
-}
-
-
-@media (min-width: 1920px) {
-  body {
-    font-size: 1.4rem; /* readable from distance */
+  html {
+    font-size: 20px; 
   }
 
   .header {
-    height: 8rem;
+    height: 12vh;
   }
 
-  .logo-moonrider img {
-    width: 15rem;
-  }
-
-  .gradient-text {
-    font-size: 3.2rem;
+  .header-content {
+    width: 45%;
   }
 
   .buttons button {
-    font-size: 1.4rem;
-    padding: 1rem 2.5rem;
-  }
-
-  .video-content {
-    height: calc(100% - 8rem);
+    font-size: 1.2rem;
+    border-radius: 1rem;
   }
 }
