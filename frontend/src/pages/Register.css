@@ -1,105 +1,167 @@
-.register-container{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
   width: 100%;
   height: 100%;
+  font-size: 1rem;
+}
+
+.register-container {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
 }
-.tractor-image{
+
+.tractor-image {
   width: 70%;
-  height: 100%;
- 
-  overflow: hidden;
+  min-height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .tractor-image img {
   position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%) scale(1.11); 
+  inset: 0;
   width: 100%;
   height: 100%;
-object-fit: cover;
+  object-fit: cover;
   object-position: 30% center;
-  opacity: 0.4;
+  opacity: 0.6;
+  transform: scale(1.1);
 }
-.register-validation{
+
+.register-validation {
   width: 30%;
-  height: 100%;
- 
-}
-.mr-logo{
-  width: 100%;
-  height: 12%;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  background-color: #ffffff;
 }
-.mr-logo img{
-  height: 50%;
-  width: 30%;
-}
-.register-box{
 
-  width: 80%;
-  height: 40%;
+.mr-logo {
+  width: 100%;
+  height: 6rem;
   display: flex;
-  align-items: start;
-  margin-left: 10%;
-  margin-top: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
-.register-box form{
- 
- display: flex;
- flex-direction: column;
-  height: 100%;
-  width: 90%;
-  margin-left: 5%;
+
+.mr-logo img {
+  width: 8rem;
 }
-.register-box form label{
-  margin-bottom: 3%;
-  font-size: 1vw;
-  
+
+.register-box {
+  width: 80%;
+  margin: 0 auto;
 }
-.register-box form input{
+
+.register-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-box form label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.register-box form input {
   width: 100%;
-  margin-bottom: 12%;
-  height: 15%;
-  border-radius: 0.5vw;
+  height: 2.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
   border: 1px solid rgb(205, 203, 203);
-  padding-left: 1.5%;
-  font-size: 1vw;
-
+  padding-left: 0.75rem;
+  font-size: 1rem;
   outline: none;
-
 }
-.register-box form button{
+
+.register-box form button {
   width: 100%;
-  height: 15%;
-  border-radius: 1vw;
-  font-size: 1.2vw;
+  height: 3rem;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
   background-color: #E7920D;
   color: white;
   border: none;
+  transition: all 0.3s ease;
 }
-.switch-to-login{
+
+.register-box form button:hover {
+  background-color: #fa9703;
+}
+
+.switch-to-login {
   width: 100%;
-  height: 10%;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
-  align-items: start;
-
 }
-.switch-to-login p{
-  font-size: 1vw;
 
-
+.switch-to-login p {
+  font-size: 0.95rem;
+  color: #000000;
 }
-.switch-to-login span{
+
+.switch-to-login span {
   color: #fa9703;
   font-weight: 600;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .tractor-image {
+    width: 60%;
+  }
+
+  .register-validation {
+    width: 40%;
+  }
+
+  .mr-logo img {
+    width: 7rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  .mr-logo {
+    height: 8rem;
+  }
+
+  .mr-logo img {
+    width: 11rem;
+  }
+
+  .register-box form input {
+    height: 3.5rem;
+    font-size: 1.2rem;
+  }
+
+  .register-box form button {
+    height: 3.8rem;
+    font-size: 1.4rem;
+  }
+
+  .switch-to-login p {
+    font-size: 1.1rem;
+  }
 }

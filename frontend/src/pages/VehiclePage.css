@@ -346,3 +346,189 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 .professional-table tbody tr:hover {
   background: #eef2ff;
 }
+
+
+@media (max-width: 1024px) {
+
+  .vehiclepage {
+    height: auto;
+  }
+
+  .vin-details {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .vin-box {
+    width: 96%;
+    height: auto;
+  }
+
+  .vehicle-value {
+    flex-direction: column;
+  }
+
+  .vehicle-value-left,
+  .vehicle-value-right {
+    width: 100%;
+    height: auto;
+  }
+
+  .text {
+    margin-left: 3%;
+    font-size: 0.95rem;
+  }
+
+  .input-vin input {
+    width: 80%;
+    padding: 4%;
+    font-size: 0.95rem;
+  }
+
+  .dates {
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+  }
+
+  .start-date,
+  .end-date {
+    width: 100%;
+  }
+
+  .start-date input,
+  .end-date input {
+    width: 80%;
+    height: auto;
+  }
+
+  .submit {
+    height: auto;
+  }
+
+  .submit button {
+    width: 80%;
+    height: 3rem;
+    font-size: 0.95rem;
+  }
+
+  .vehicle-value-right .instructions {
+    font-size: 0.9rem;
+    line-height: 2;
+  }
+
+  .content {
+    width: 100%;
+    gap: 1rem;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .content button {
+    font-size: 0.95rem;
+    padding: 8px 14px;
+  }
+
+  .tab-box {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .tab-box .file-preview {
+    height: 200px;
+  }
+
+  .professional-table {
+    min-width: 900px;
+    font-size: 12px;
+  }
+
+  .table-container {
+    max-height: 55vh;
+  }
+
+  .all {
+    margin-top: 10%;
+  }
+}
+@media (min-width: 1920px) {
+
+  .vehiclepage {
+    min-height: 100vh;
+  }
+
+  .text {
+    font-size: 1.2rem;
+  }
+
+  .vin-box {
+    width: 90%;
+  }
+
+  .input-vin input {
+    width: 60%;
+    padding: 2.5%;
+    font-size: 1.1rem;
+  }
+
+  .dates {
+    gap: 8%;
+  }
+
+  .start-date input,
+  .end-date input {
+    width: 75%;
+    height: 3rem;
+    font-size: 1.15rem; 
+    
+  }
+
+  .submit button {
+    width: 60%;
+    height: 3.5rem;
+    font-size: 1.1rem;
+  }
+
+  .vehicle-value-right .instructions {
+    font-size: 1.1rem;
+    line-height: 4.8;
+    
+  }
+
+  .content button {
+    font-size: 1.1rem;
+  }
+
+  .tab-box {
+    width: 85%;
+    padding: 28px;
+  }
+
+  .tab-box .file-preview {
+    height: 320px;
+    font-size: 1rem;
+  }
+
+  .professional-table {
+    min-width: 1400px;
+    font-size: 15px;
+  }
+
+  .table-container {
+    max-height: 70vh;
+  }
+
+  .table-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .download-btn {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+
+  .all {
+    margin-top: 18%;
+  }
+}
+

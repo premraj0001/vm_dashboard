@@ -12,19 +12,19 @@ html, body, #root {
   height: 100%;
 }
 
-/* Base font size */
+
 html {
   font-size: 100%; 
 }
 
-/* Tablet */
+
 @media (max-width: 1024px) {
   html {
     font-size: 93.75%; 
   }
 }
 
-/* TV / Large screens */
+
 @media (min-width: 1920px) {
   html {
     font-size: 125%; 

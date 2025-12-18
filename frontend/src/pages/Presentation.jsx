@@ -149,7 +149,7 @@ function Presentation() {
   const name = vehicleList[vehicleIndex];
   return (
     <div style={{ padding: 10 }}>
-      <h2 style={{ textAlign: "center", fontSize: "20px", marginBottom: "10px" }}>
+      <h2 style={{  color: "black",textAlign: "center", fontSize: "20px", marginBottom: "10px" }}>
         Showing {screen === "live" ? "Live Data" : "Graph"} for:
         <span style={{ color: "#ff6600" }}> {name}</span>
       </h2>
