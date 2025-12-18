@@ -32,15 +32,15 @@ export default function Login() {
       if (res.ok) {
         const data = await res.json();
         sessionStorage.setItem("token", data.token);
-        setMessage("Login successful!");
-        setTimeout(() => navigate("/dashboard/vehicle"), 500);
+        setMessage("✅ Login successful!");
+        setTimeout(() => navigate("/dashboard/vehicle"), 1000);
       } else {
         const error = await res.json();
-        setMessage(error.message || "Login failed");
+        setMessage(error.message || "❌ Login failed");
       }
     } catch (err) {
       console.error("Login error:", err);
-      setMessage("Something went wrong");
+      setMessage("❌ Something went wrong");
     }
   }
 
@@ -52,21 +52,13 @@ export default function Login() {
 
       <div className="login-validation">
         <div className="logo">
-          {message && (
-            <p
-              className={`message ${
-                message.includes("successful") ? "success" : "error"
-              }`}
-            >
-              {message}
-            </p>
-          )}
+          {message && <p className="message">{message}</p>}
           <img src="mrlogo.svg" alt="moonrider logo" />
         </div>
 
         <div className="login-inputs">
           <form onSubmit={handleSubmit} className="login-form">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               placeholder="Enter Your Email"
@@ -76,7 +68,7 @@ export default function Login() {
               autoComplete="off"
             />
 
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               placeholder="Enter Your Password"
@@ -89,6 +81,7 @@ export default function Login() {
             <button type="submit">Login</button>
           </form>
         </div>
+
       </div>
     </div>
   );

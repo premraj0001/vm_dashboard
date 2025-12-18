@@ -13,20 +13,11 @@ html, body, #root {
 }
 
 
-html {
-  font-size: 100%; 
-}
+@media screen
+  and (min-width: 1600px)
+  and (aspect-ratio: 16 / 9) {
 
-
-@media (max-width: 1024px) {
   html {
-    font-size: 93.75%; 
-  }
-}
-
-
-@media (min-width: 1920px) {
-  html {
-    font-size: 125%; 
+    font-size: 20px;
   }
 }

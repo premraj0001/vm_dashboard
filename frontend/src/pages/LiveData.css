@@ -1,35 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  font-size: 1rem;
-}
 
 .live-screen {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   background: #ffffff;
+  font-family: "Poppins", sans-serif;
+
 }
 
 .live-data-box {
   width: 96%;
-  padding: 1.25rem;
-  background: #ffffff;
-  border-radius: 1.25rem;
-  box-shadow: 0 0.375rem 1.25rem rgba(0,0,0,0.12);
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
 .battery-info,
@@ -38,13 +28,14 @@ body {
 .motor-info,
 .performance,
 .connectivity {
-  flex: 0 0 calc(33.333% - 1.5rem);
+  flex: 1 1 30%;
   border: 1px solid rgb(192, 187, 187);
-  padding: 1rem;
-  background: #ffffff;
-  border-radius: 1.25rem;
-  transition: all 0.3s ease;
+  padding: 1%;
+  background: #fff;
+  border-radius: 20px;
+  transition: all 0.3s ease; 
 }
+
 
 .battery-info:hover,
 .odometer-info:hover,
@@ -52,30 +43,28 @@ body {
 .motor-info:hover,
 .performance:hover,
 .connectivity:hover {
-  transform: translateY(-0.25rem);
-  box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
-
-.odometer-info {
-  line-height: 1.9;
+.odometer-info{
+ line-height: 1.9;
 }
-
 .card-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 4%;
+  margin-bottom: 6px;
 }
 
 .map-placeholder {
   width: 100%;
-  height: 15.5rem;
+  height: 250px;
 }
 
 .map {
   width: 100% !important;
-  height: 15.5rem !important;
-  border-radius: 0.75rem;
+  height: 250px !important;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -84,7 +73,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0.25rem 0;
+  margin: 3px 0;
 }
 
 .key {
@@ -92,7 +81,6 @@ body {
   color: #555;
   text-align: left;
   flex: 1;
-  font-size: 1rem;
 }
 
 .value {
@@ -100,37 +88,32 @@ body {
   color: #000;
   text-align: right;
   flex: 1;
-  font-size: 1rem;
 }
+@media screen
+  and (min-width: 1600px)
+  and (aspect-ratio: 16 / 9) {
 
-@media (max-width: 1024px) {
-  body {
-    font-size: 0.95rem;
+  body,
+  .dashboard,
+  .live-screen {
+    overflow: hidden;
   }
 
-  .battery-info,
-  .odometer-info,
-  .card-map,
-  .motor-info,
-  .performance,
-  .connectivity {
-    flex: 0 0 calc(50% - 1rem);
-  }
-
-  .map,
-  .map-placeholder {
-    height: 14rem;
-  }
-}
-
-@media (min-width: 1920px) {
-  body {
-    font-size: 1.4rem;
+  .live-screen {
+    height: calc(100vh - 12vh);
+    align-items: center;
+    padding-bottom: 3vh; 
   }
 
   .live-data-box {
-    padding: 2rem;
-    gap: 2rem;
+    width: 96%;
+    height: calc(100% - 3vh); 
+    padding: 24px;
+    gap: 24px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 
   .battery-info,
@@ -139,17 +122,13 @@ body {
   .motor-info,
   .performance,
   .connectivity {
-    flex: 0 0 calc(33.333% - 2rem);
     padding: 1.5rem;
+    border-radius: 24px;
+    font-size: 1.1rem;
   }
 
   .map,
   .map-placeholder {
-    height: 20rem;
-  }
-
-  .key,
-  .value {
-    font-size: 1.2rem;
+    height: 180px !important;
   }
 }
