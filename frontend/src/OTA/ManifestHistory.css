@@ -1,0 +1,96 @@
+.manifest-layout{
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+}
+.manifest-history {
+  border-radius: 16px;
+  padding: 2vw;
+  width: 90%;
+  background-color: white;
+}
+
+.manifest-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw 0;
+  border-bottom: 1px solid #eee;
+}
+
+
+
+
+
+.tab {
+  padding: 10px 18px;
+  border-radius: 12px 12px 0 0;
+  font-size: 14px;
+  cursor: default;
+  color: #333;
+}
+
+.tab.inactive {
+  color: #aaa;
+}
+
+.tab.active {
+  background: #ffffff;
+  font-weight: 600;
+}
+
+.manifest-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px 30px;
+}
+
+.manifest-row {
+  display: grid;
+  grid-template-columns: 120px 1.3fr 1fr 1fr 1.2fr 0.8fr;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  
+}
+
+.manifest-row:last-child {
+  border-bottom: none;
+}
+
+.date strong {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  color:black;
+  padding-left: 8%;
+}
+
+.date span {
+  font-size: 12px;
+  color: black;
+}
+
+.label {
+  font-weight: 550;
+  font-size: 13.5px;
+  color: black;
+}
+
+.manifest-row p {
+  font-size: 12px;
+  margin-top: 6px;
+  color: black;
+}
+
+.tractor-count {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  color: #f0b429;
+  font-weight: bold;
+  margin-left: 4px;
+}

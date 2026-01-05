@@ -1,0 +1,139 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+}
+
+/* Modal */
+.select-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 560px;
+  max-height: 85vh;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 28px;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Close icon */
+.close-icon {
+  position: absolute;
+  top: -70px;
+  right: 0px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 16px;
+  margin: 0 auto;
+  font-weight: 550;
+
+}
+
+.step {
+  font-size: 13px;
+  color: #777;
+  font-weight: 500;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 16px 0;
+}
+
+/* Controls */
+.modal-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 550;
+  font-style: italic;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f3f3;
+  padding: 8px 14px;
+  border-radius: 24px;
+}
+
+.search-box img {
+  width: 16px;
+  opacity: 0.6;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+/* List */
+.tractor-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.tractor-row {
+  display: grid;
+  grid-template-columns: 24px 60px 1.6fr 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.tractor-img {
+  width: 56px;
+}
+
+.tractor-info span,
+.firmware span {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+}
+.tractor-info strong,
+.firmware strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 550;
+}
+
+/* Continue button */
+.continue-btn {
+  margin-top: 18px;
+  padding: 14px;
+  border: none;
+  border-radius: 26px;
+  background: #e59612;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
