@@ -7,6 +7,10 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import "./App.css";
 import Presentation from "./pages/Presentation";
 import VehiclePage from "./pages/VehiclePage";
+import Ota from "./OTA/Ota";
+import ManifestHistory from "./OTA/ManifestHistory";
+import TractorDetail from "./OTA/TractorDetail";
+import SelectTractorModel from "./OTA/SelectTractorModel";
 
 export default function App() {
   return (
@@ -25,9 +29,14 @@ export default function App() {
 
           
           <Route path="presentation" element={<Presentation />} />
-
+          
+        <Route path="ota" element={<Ota />}>
+          <Route path="manifesthistory" element={<ManifestHistory />} />
+          
         </Route>
-
+        <Route path="/dashboard/ota/tractor/:id" element={<TractorDetail />} />
+        </Route>
+        <Route path="/dashboard/ota/tractorselection" element={<SelectTractorModel />} />
         
       </Route>
 

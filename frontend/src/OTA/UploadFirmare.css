@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* Overlay */
+.upload-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card – same look, reduced height */
+.upload-card {
+  width: 300px;
+  margin-top: 30px;
+  padding: 12px 16px;        /* slightly tighter vertically */
+  background: #ffffff;
+  border-radius: 14px;
+}
+
+/* Header */
+.upload-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.upload-header h3 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+/* Close button */
+.close-btn {
+   position: absolute;
+  top: 14px;
+  right: 487px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn img {
+  width: 20px;
+}
+
+/* Upload box – reduced height */
+.upload-box {
+  position: relative;
+  margin-bottom: 10px;          /* reduced vertical margin */
+  border: 1.5px dashed #dcdcdc;
+  border-radius: 10px;
+  padding: 12px 10px;              /* reduced padding */
+  text-align: center;
+}
+
+.folder-icon {
+  width: 18px;
+  margin-bottom: 3px;
+}
+
+.upload-btn {
+  margin: 2px auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.upload-btn img {
+  width: 11px;
+}
+
+.upload-text {
+  font-size: 9.5px;
+  margin-top: 1px;
+}
+
+/* Form rows – tighter stacking */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 7px;        /* reduced */
+}
+
+.form-group label {
+  font-size: 10.5px;
+  font-weight: 500;
+}
+
+/* Inputs */
+.form-group input {
+  padding: 6px 8px;
+  font-size: 10.5px;
+  border-radius: 7px;
+  border: 1px solid #e4e4e4;
+}
+
+/* Textareas – slightly reduced height */
+.form-group textarea {
+  resize: none;
+  height: 64px;              /* ⬅️ reduced, still comfortable */
+  padding: 8px;
+  font-size: 10.5px;
+  line-height: 1.4;
+  border-radius: 7px;
+  border: 1px solid #e4e4e4;
+}
+
+/* Select look */
+.select-box {
+  height: 28px;              /* slightly reduced */
+  border-radius: 7px;
+  border: 1px solid #e4e4e4;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: #777;
+  cursor: pointer;
+}
+
+.select-box img {
+  width: 9px;
+}
+
+/* Submit */
+.submit-btn {
+
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  background: #f59e0b;
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Orange upload state */
+.orange-upload {
+  position: relative;
+  background: #fff3e0;
+  border: 1.5px dashed #f59e0b;
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.orange-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.orange-close img {
+  width: 14px;
+}
+
+.orange-file-icon {
+  width: 22px;
+  margin-bottom: 6px;
+}
+
+.file-name {
+  font-size: 10.5px;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+/* Error */
+.file-error {
+  color: red;
+  font-size: 9.5px;
+  margin-top: 4px;
+}

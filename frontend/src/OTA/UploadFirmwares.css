@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* ===== Overlay ===== */
+.fw-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Card ===== */
+.fw-card {
+  width: 460px;
+  margin-top: 45px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 22px;
+}
+
+/* ===== Header ===== */
+.fw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.fw-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.fw-header span {
+  font-size: 12px;
+  color: #777;
+}
+
+/* ===== Grid ===== */
+.fw-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* ===== Tile ===== */
+.fw-tile {
+  border: 1.5px dashed #dcdcdc;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+}
+
+/* ===== Top Icon Area ===== */
+.fw-icon-box {
+  position: relative;
+  height: 92px;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fw-icon-box.uploaded {
+  background: #fff3e0;
+}
+
+.fw-icon-box img {
+  width: 36px;
+}
+
+/* ===== Remove Button (X) ===== */
+.fw-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Bottom Info ===== */
+.fw-info {
+  position: relative;
+  padding: 10px 12px;
+  border-top: 1px dashed #dcdcdc;
+}
+
+.fw-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fw-sub {
+  margin-top: 3px;
+  font-size: 10px;
+  color: #666;
+}
+
+/* ===== Status Icon ===== */
+.fw-status {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fw-status.done {
+  background: #22c55e;
+}
+
+/* ===== Divider ===== */
+.fw-divider {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 18px 0;
+}
+
+/* ===== Footer ===== */
+.fw-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Label aligned like design */
+.fw-footer label {
+  width: 80%;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Manifest Input */
+.fw-footer input {
+  width: 80%;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+
+/* CTA Button */
+.fw-footer button {
+  width: 80%;
+  height: 42px;
+  margin-top: 6px;
+  border-radius: 22px;
+  border: none;
+  background: #f59e0b;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Close icon on top right */
+.fw-close {
+  position: absolute;
+  top: 18px;
+  right: 408px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.fw-close img {
+  width: 30px;
+}
+
+/* Header divider */
+.fw-header-divider {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 10px 0 18px;
+}

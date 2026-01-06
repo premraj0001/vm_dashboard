@@ -1,9 +1,10 @@
 
-import ManifestHistory from "./ManifestHistory";
+
 import React, { useState } from "react";
 import "./Ota.css";
 import tractorImg from "../assets/tractor.png";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import ManifestHistory from "./ManifestHistory";
 
 const Ota = () => {
   const [activeFilter, setActiveFilter] = useState("all");

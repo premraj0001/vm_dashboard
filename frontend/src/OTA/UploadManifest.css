@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+  
+}
+
+.upload-overlay-mm {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Card */
+.upload-card-m-mm{
+  background: #fff;
+  width: 445px;
+  height: 570px;
+  padding: 26px;
+  border-radius: 18px;
+  position: relative;
+  margin-top: 3.4%; 
+}
+
+/* Close button */
+.close-btn1-mm{
+  position: absolute;
+  top: 17px;
+  right: 414px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn1-mm img {
+  width: 32px;
+ 
+  
+}
+
+
+/* Header */
+.upload-header-mm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upload-header-mm h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.upload-header-mm span {
+  color: #888;
+  font-size: 12px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+/* Upload Box */
+.upload-box-mm {
+  border: 2px dashed #ddd;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.folder-icon-mm {
+  width: 48px;
+  opacity: 0.6;
+  margin-bottom: 12px;
+}
+
+.upload-action-mm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.upload-action-mm img {
+  width: 18px;
+}
+
+.upload-box-mm p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #d8d8d8;
+}
+
+/* Input */
+.manifest-input-mm {
+  margin-bottom: 28px;
+  
+  justify-content: center;
+  
+  margin-top: 15%;
+}
+
+.manifest-input-mm label {
+  display: block;
+  margin-bottom: 8px;
+  margin-left: 17%;
+  font-weight: 600;
+  
+}
+
+.manifest-input-mm input {
+  width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  justify-content: center;
+  margin-left: 17%
+  
+}
+
+/* Upload Button */
+.upload-btn-mm {
+  width: 70%;
+  padding: 10px;
+  background: #f2a11a;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  justify-content: center;
+  margin-left: 17%;
+  margin-top: 10%;
+}
