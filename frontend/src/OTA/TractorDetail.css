@@ -1,0 +1,117 @@
+.ota-wrapper {
+  background: #f5f6f8;
+  min-height: 100vh;
+  padding: 30px;
+  position: relative;
+}
+
+/* Back Button */
+.back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 2.2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.back-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Card */
+.ota-c{
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.ota-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tractor-img {
+  margin-top: 5%;
+  width: 80px;
+}
+
+.tractor-info h2 {
+  margin-top: 30%;
+  font-size: 20px;
+}
+
+.tractor-info p {
+  margin: 4px 0 0;
+  font-weight: 500;
+}
+
+/* Versions */
+.version-row {
+  display: flex;
+  gap: 80px;
+  margin: 30px 0;
+}
+
+.version-row span {
+  margin-top: 6px;
+  font-weight: 500;
+  
+}
+
+.version-row p {
+  font-size: 14px
+}
+
+/* History */
+.history-title {
+  margin: 20px 0;
+  font-size: 18px;
+ 
+}
+
+.history-table {
+  border-top: 1px solid #e5e5e5;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: 120px 1.2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.history-row span {
+  font-weight: 500;
+ 
+}
+
+.history-row p {
+  font-size: 12px;
+  
+}
+
+.date strong {
+  display: block;
+  font-size: 13px;
+  padding-left: 10%;
+}
+
+.date span {
+  font-size: 12px;
+}
+
+.placeholder {
+  color: #797979;
+}
