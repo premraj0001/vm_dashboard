@@ -41,7 +41,15 @@ export default function DashboardLayout() {
               }
             }
           to={"/dashboard/presentation"}>Presentation</NavLink>
-          
+          <NavLink
+            style={
+              (e)=>{
+                return{
+                  color: e.isActive? "orange" : "grey",
+                }
+              }
+            }
+          to={"/dashboard/ota"}>Ota</NavLink>
           
     
         </div>
