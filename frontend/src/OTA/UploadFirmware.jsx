@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./UploadFirmware.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import "./UploadFirmware.css"
 
 import crossIcon from "../assets/cross.png";
 import uploadIcon from "../assets/upload-icon.png";
@@ -8,6 +9,18 @@ import orangeFile from "../assets/orange-file.png";
 import dropdownIcon from "../assets/drop-down.png";
 
 const UploadFirmware = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // ✅ ADDED: receive moduleKey
+  const moduleKey = location.state?.moduleKey;
+
+  // ✅ ADDED: guard if opened directly
+  if (!moduleKey) {
+    navigate("/dashboard/ota/uploadmanifest");
+    return null;
+  }
+
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
 
@@ -36,17 +49,18 @@ const UploadFirmware = () => {
 
   return (
     <div className="upload-overlay">
-      <button className="close-btn">
+      <button
+        className="close-btn"
+        onClick={() => navigate("/dashboard/ota/uploadmanifest")}
+      >
         <img src={crossIcon} alt="close" />
       </button>
 
       <div className="upload-card">
-        {/* Header */}
         <div className="upload-header">
           <h3>Upload Firmware</h3>
         </div>
 
-        {/* Upload Area */}
         {!file ? (
           <div className="upload-box">
             <img src={folderIcon} alt="folder" className="folder-icon" />
@@ -91,7 +105,6 @@ const UploadFirmware = () => {
           </div>
         )}
 
-        {/* Form Rows */}
         <div className="form-group">
           <label>Firmware Version</label>
           <input type="text" placeholder="Enter here" />
@@ -100,7 +113,8 @@ const UploadFirmware = () => {
         <div className="form-group">
           <label>Module type</label>
           <div className="select-box">
-            <span>Select</span>
+            {/* ✅ ADDED: show moduleKey */}
+            <span>{moduleKey}</span>
             <img src={dropdownIcon} alt="dropdown" />
           </div>
         </div>
@@ -131,12 +145,26 @@ const UploadFirmware = () => {
           <textarea placeholder="Enter here" />
         </div>
 
-        {/* Submit */}
-        <button className="submit-btn">Submit</button>
+        {/* ✅ ADDED: return uploaded module */}
+        <button
+  className="submit-btn"
+  onClick={() =>
+    navigate("/dashboard/ota/uploadmanifest", {
+      state: {
+        uploadedFiles: {
+          ...location.state?.uploadedFiles,
+          [moduleKey]: true,
+        },
+      },
+    })
+  }
+>
+  Submit
+</button>
+
       </div>
     </div>
   );
 };
 
 export default UploadFirmware;
-

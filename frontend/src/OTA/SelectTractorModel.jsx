@@ -15,7 +15,6 @@ export default function SelectTractorModel() {
     { id: "ME9BT525J01573005", name: "Highforce 55 HP", firmware: "V10.09.05" },
   ];
 
-  
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState([]);
 
@@ -27,7 +26,6 @@ export default function SelectTractorModel() {
     }
   };
 
- 
   const handleSelectOne = (id) => {
     setSelected((prev) =>
       prev.includes(id)
@@ -42,12 +40,9 @@ export default function SelectTractorModel() {
 
   return (
     <>
-      {/* Backdrop */}
       <div className="modal-backdrop" />
 
-      {/* Modal */}
       <div className="select-modal">
-        {/* Close icon */}
         <img
           src={crossIcon}
           alt="close"
@@ -55,7 +50,6 @@ export default function SelectTractorModel() {
           onClick={() => navigate("/dashboard/ota")}
         />
 
-        {/* Header */}
         <div className="modal-header">
           <h2>Select Tractors</h2>
           <span className="step">Step 1 of 2</span>
@@ -63,7 +57,6 @@ export default function SelectTractorModel() {
 
         <hr />
 
-        {/* Controls */}
         <div className="modal-controls">
           <label className="select-all">
             <input
@@ -85,7 +78,6 @@ export default function SelectTractorModel() {
           </div>
         </div>
 
-        {/* Tractor list */}
         <div className="tractor-list">
           {filteredTractors.map((t) => (
             <div className="tractor-row" key={t.id}>
@@ -110,8 +102,14 @@ export default function SelectTractorModel() {
           ))}
         </div>
 
-        {/* Footer */}
-        <button className="continue-btn">
+        <button
+          className="continue-btn"
+          disabled={selected.length === 0}
+          onClick={() =>
+            selected.length > 0 &&
+            navigate("/dashboard/ota/uploadmanifest")
+          }
+        >
           Continue ({selected.length})
         </button>
       </div>
