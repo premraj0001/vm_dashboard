@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./Login.css";
 
 const API = "https://backend-prod.moonrider.ai";
@@ -7,7 +8,6 @@ const API = "https://backend-prod.moonrider.ai";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +20,6 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setMessage("");
 
     try {
       const res = await fetch(`${API}/dashboard/login`, {
@@ -32,15 +31,20 @@ export default function Login() {
       if (res.ok) {
         const data = await res.json();
         sessionStorage.setItem("token", data.token);
-        setMessage("✅ Login successful!");
+
+        toast.success("Login successful", {
+         progressStyle: {
+         background: "#ff6600",
+              },
+              });
         setTimeout(() => navigate("/dashboard/vehicle"), 1000);
       } else {
         const error = await res.json();
-        setMessage(error.message || "❌ Login failed");
+        toast.error(error.message || "Login failed");
       }
     } catch (err) {
       console.error("Login error:", err);
-      setMessage("❌ Something went wrong");
+      toast.error("Something went wrong");
     }
   }
 
@@ -52,7 +56,6 @@ export default function Login() {
 
       <div className="login-validation">
         <div className="logo">
-          {message && <p className="message">{message}</p>}
           <img src="mrlogo.svg" alt="moonrider logo" />
         </div>
 
@@ -81,7 +84,6 @@ export default function Login() {
             <button type="submit">Login</button>
           </form>
         </div>
-
       </div>
     </div>
   );

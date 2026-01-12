@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./UploadFirmware.css"
+import "./UploadFirmware.css";
 
 import crossIcon from "../assets/cross.png";
 import uploadIcon from "../assets/upload-icon.png";
@@ -12,10 +12,8 @@ const UploadFirmware = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // ✅ ADDED: receive moduleKey
   const moduleKey = location.state?.moduleKey;
 
-  // ✅ ADDED: guard if opened directly
   if (!moduleKey) {
     navigate("/dashboard/ota/uploadmanifest");
     return null;
@@ -62,16 +60,17 @@ const UploadFirmware = () => {
         </div>
 
         {!file ? (
-          <div className="upload-box">
+          /* ✅ CHANGE: upload-box is now clickable */
+          <div
+            className="upload-box"
+            onClick={() =>
+              document.getElementById("firmwareInput").click()
+            }
+          >
             <img src={folderIcon} alt="folder" className="folder-icon" />
 
-            <button
-              type="button"
-              className="upload-btn"
-              onClick={() =>
-                document.getElementById("firmwareInput").click()
-              }
-            >
+            {/* ❌ removed onClick from button */}
+            <button type="button" className="upload-btn">
               <img src={uploadIcon} alt="upload" />
               Upload file
             </button>
@@ -84,7 +83,9 @@ const UploadFirmware = () => {
               onChange={handleFileChange}
             />
 
-            <p className="upload-text">Select binary file (.bin / .hex)</p>
+            <p className="upload-text">
+              Select binary file (.bin / .hex)
+            </p>
 
             {error && <p className="file-error">{error}</p>}
           </div>
@@ -113,7 +114,6 @@ const UploadFirmware = () => {
         <div className="form-group">
           <label>Module type</label>
           <div className="select-box">
-            {/* ✅ ADDED: show moduleKey */}
             <span>{moduleKey}</span>
             <img src={dropdownIcon} alt="dropdown" />
           </div>
@@ -145,23 +145,21 @@ const UploadFirmware = () => {
           <textarea placeholder="Enter here" />
         </div>
 
-        {/* ✅ ADDED: return uploaded module */}
         <button
-  className="submit-btn"
-  onClick={() =>
-    navigate("/dashboard/ota/uploadmanifest", {
-      state: {
-        uploadedFiles: {
-          ...location.state?.uploadedFiles,
-          [moduleKey]: true,
-        },
-      },
-    })
-  }
->
-  Submit
-</button>
-
+          className="submit-btn"
+          onClick={() =>
+            navigate("/dashboard/ota/uploadmanifest", {
+              state: {
+                uploadedFiles: {
+                  ...location.state?.uploadedFiles,
+                  [moduleKey]: true,
+                },
+              },
+            })
+          }
+        >
+          Submit
+        </button>
       </div>
     </div>
   );

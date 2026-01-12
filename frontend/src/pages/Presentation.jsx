@@ -63,7 +63,10 @@ function Presentation() {
   const historyCache = useRef({});
   const loadingHistory = useRef(false);
 
+  
   useEffect(() => {
+    if (screen !== "graph") return; //?
+
     const name = vehicleList[vehicleIndex];
     setWeekHistory([]);
     setGraphLoading(true);
@@ -110,10 +113,13 @@ function Presentation() {
     };
 
     loadHistory();
-  }, [vehicleIndex]);
+  }, [screen, vehicleIndex]); //why screen is added?
 
+  
   useEffect(() => {
     const name = vehicleList[vehicleIndex];
+    setLiveLoading(true);
+    setLatestData(null);
 
     const loadLive = async () => {
       try {
@@ -121,8 +127,11 @@ function Presentation() {
         const json = res.data;
 
         if (json && json.length > 0) {
-          setLatestData(json[0]);
-          setLiveLoading(false);
+          // 👇 minimum loader visibility
+          setTimeout(() => {
+            setLatestData(json[0]);
+            setLiveLoading(false);
+          }, 500);
         }
       } catch (err) {
         console.log("❌ Live fetch error:", err);
@@ -131,22 +140,26 @@ function Presentation() {
 
     loadLive();
     const interval = setInterval(loadLive, 1000);
-
     return () => clearInterval(interval);
   }, [vehicleIndex]);
+
+ 
   useEffect(() => {
+    if (liveLoading) return;
+
     const interval = setInterval(() => {
       setScreen((prev) => {
         if (prev === "live") return "graph";
         setVehicleIndex((i) => (i + 1) % vehicleList.length);
         return "live";
       });
-    }, 20000);
+    }, 10000);//
 
     return () => clearInterval(interval);
-  }, []);
+  }, [liveLoading]);
 
   const name = vehicleList[vehicleIndex];
+
   return (
     <div style={{ padding: 10 }}>
       <h2 style={{ textAlign: "center", fontSize: "20px", marginBottom: "10px" }}>
