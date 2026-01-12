@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import LiveData from "./LiveData";
 import GraphContainer from "./GraphContainer";
+import Loader from "./Loader";
 import { fetchVehicle, fetchHistory as fetchHistoryAPI } from "../api.jsx";
 
 function cleanFixTime(t) {
@@ -24,23 +25,7 @@ function cleanFixTime(t) {
   return val;
 }
 
-function Loader({ text }) {
-  return (
-    <div
-      style={{
-        height: "70vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "18px",
-        fontWeight: 500,
-        color: "#555",
-      }}
-    >
-      🔄 {text}
-    </div>
-  );
-}
+
 
 function Presentation() {
   const vehicleList = [
