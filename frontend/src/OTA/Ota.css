@@ -1,4 +1,4 @@
-.ota-screen{
+/* .ota-screen{
   width: 100%;
   min-height: 91.4vh;
   background-color: rgb(234, 234, 234);
@@ -92,6 +92,255 @@ border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   border: none;
   background: #f1f1f1;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ota-tab.active {
+  background: white;
+  color: black;
+}
+
+
+
+.ota-tractor-list{
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+}
+
+.ota-updating-container {
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.ota-updating-header {
+  margin: 2vw 3vw;
+  font-weight: 600;
+}
+
+
+
+.ota-filters{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+}
+
+.filter-btn {
+  padding: .6vw 4vw;
+  border-radius: 999px;
+  border: 1.5px solid #000;
+  background: white;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+.start-ota{
+  margin-right: 3vw;
+}
+
+.start-ota button{
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: .5vw 3.5vw;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+.ota-row{
+  width: 100%;
+  height: 13vh;
+  margin-top: 1vw;
+  display: flex;
+}
+
+.ota-left{
+  width: 30%;
+  gap: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ota-left img{
+  width: 80px;
+}
+
+.ota-right{
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.ota-version{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.version {
+  font-weight: 600;
+}
+
+
+
+.status-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: black;
+}
+
+.tick-circle {
+  width: 22px;
+  height: 22px;
+  background-color: #2ecc71;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.ota-updates{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.updates{
+  display: flex;
+  gap: 2vw;
+  font-weight: 600;
+}
+
+.ota-progress{
+  width: 60%;
+  background-color: #c7c9c7;
+  height: 1vw;
+  border-radius: 20px;
+}
+
+.progress-bar{
+  width: 70%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(240, 171, 10);
+} */
+.ota-screen{
+  width: 100%;
+  min-height: 91.4vh;
+  background-color: rgb(234, 234, 234);
+}
+
+
+
+.ota-cards{
+  margin-top: 3vh;
+  width: 100%;
+  height: 23vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ota-card{
+  width: 90%;
+  height: 16vh;
+  border-radius: 17px;
+  display: flex;
+  overflow: hidden;
+  background-color: white;
+}
+
+.ota-card-left{
+  width: 16%;
+  padding-left: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ota-card-right{
+  width: 84%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ota-card-right-child{
+  width: 98%;
+  height: 86%;
+  padding: 0 1.6rem;
+  background-color: rgb(249, 249, 249);
+  border-radius: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ota-left-label {
+  font-size: 0.85rem;
+  color: #393d45;
+}
+
+.ota-left-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.ota-stat{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ota-stat-label {
+  font-size: 0.8rem;
+  color: #2f3034;
+}
+
+.ota-stat-value {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #111;
+}
+
+
+.ota-tabs {
+  display: flex;
+  gap: 2rem;
+  margin-left: 7vw;
+}
+
+.ota-tab {
+  padding: 1vw 2.5vw;
+  font-size: 1rem;
+border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border: none;
+  background: rgb(234, 234, 234);
   font-weight: 600;
   cursor: pointer;
 }

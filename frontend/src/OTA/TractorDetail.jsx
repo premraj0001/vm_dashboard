@@ -1,9 +1,27 @@
 
+// import { useParams, useNavigate } from "react-router-dom";
+
+// const TractorDetail = () => {
+//   const { id } = useParams(); // 👈 YAHI CHANGE HAI
+//   const navigate = useNavigate();
+
+//   return (
+//     <div style={{ padding: "2rem" }}>
+//       <button onClick={() => navigate(-1)}>← Back</button>
+
+//       <h1>Tractor Detail</h1>
+//       <p><strong>ID:</strong> {id}</p>
+//     </div>
+//   );
+// };
+
+// export default TractorDetail;
 import { useState } from "react";
 import "./TractorDetail.css";
 import backBtn from "../assets/back_button.png";
 import tractorImg from "../assets/tractor.png";
 import { useNavigate } from "react-router-dom";
+// import SelectTractorModal from "./SelectTractorModal";
 
 export default function TractorDetail() {
 
@@ -87,7 +105,8 @@ export default function TractorDetail() {
         </div>
       </div>
 
- 
+      
+      {/* {openModal && <SelectTractorModal onClose={() => setOpenModal(false)} />} */}
     </div>
   );
 }
