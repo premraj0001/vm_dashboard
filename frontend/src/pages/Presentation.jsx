@@ -1,9 +1,10 @@
-
 import { useEffect, useState, useRef } from "react";
 import LiveData from "./LiveData";
 import Loader from "./Loader.jsx";
 import GraphContainer from "./GraphContainer";
 import { fetchVehicle, fetchHistory as fetchHistoryAPI } from "../api.jsx";
+import playIcon from "../assets/playIcon.svg";
+import pauseIcon from "../assets/pauseIcon.svg";
 
 function cleanFixTime(t) {
   if (!t) return null;
@@ -26,7 +27,6 @@ function cleanFixTime(t) {
   return val;
 }
 
-
 function Presentation() {
   const vehicleList = [
     "ME9BT525J01573002",
@@ -46,12 +46,34 @@ function Presentation() {
   const [graphLoading, setGraphLoading] = useState(true);
 
   const [isReady, setIsReady] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const timerRef = useRef(null);
+  const startTimeRef = useRef(null);
+  const remainingRef = useRef(10000);
 
   const historyCache = useRef({});
   const loadingHistory = useRef(false);
 
   const name = vehicleList[vehicleIndex];
 
+  const startTimer = () => {
+    startTimeRef.current = Date.now();
+
+    timerRef.current = setTimeout(() => {
+      setScreen((prev) => {
+        if (prev === "live") {
+          return "graph";
+        }
+
+        setVehicleIndex((i) => (i + 1) % vehicleList.length);
+        setIsReady(false);
+        return "live";
+      });
+
+      remainingRef.current = 10000;
+    }, remainingRef.current);
+  };
 
   useEffect(() => {
     setLiveLoading(true);
@@ -60,6 +82,10 @@ function Presentation() {
     setWeekHistory([]);
   }, [vehicleIndex]);
 
+  // reset timer when vehicle changes
+  useEffect(() => {
+    remainingRef.current = 10000;
+  }, [vehicleIndex]);
 
   useEffect(() => {
     const loadHistory = async () => {
@@ -111,12 +137,12 @@ function Presentation() {
     loadHistory();
   }, [name]);
 
-
   useEffect(() => {
     const loadLive = async () => {
       try {
         const res = await fetchVehicle(name);
         const json = res.data;
+        console.log(`Live data for ${name}:`, json);
 
         if (json && json.length > 0) {
           setLatestData(json[0]);
@@ -133,7 +159,6 @@ function Presentation() {
     return () => clearInterval(interval);
   }, [name]);
 
-
   useEffect(() => {
     if (!liveLoading && !graphLoading) {
       setIsReady(true);
@@ -141,27 +166,66 @@ function Presentation() {
   }, [liveLoading, graphLoading]);
 
   useEffect(() => {
-    if (!isReady) return;
+    if (!isReady || !isPlaying) return;
 
-    const interval = setInterval(() => {
-      setScreen((prev) => {
-        if (prev === "live") return "graph";
+    clearTimeout(timerRef.current);
+    startTimer();
 
-        setVehicleIndex((i) => (i + 1) % vehicleList.length);
-        setIsReady(false); // reset for next vehicle
-        return "live";
-      });
-    }, 10000); 
+    return () => clearTimeout(timerRef.current);
+  }, [isReady, isPlaying, screen]);
 
-    return () => clearInterval(interval);
-  }, [isReady, vehicleList.length]);
+  const togglePlayPause = () => {
+    if (isPlaying) {
+      clearTimeout(timerRef.current);
+
+      const elapsed = Date.now() - startTimeRef.current;
+      remainingRef.current = Math.max(0, remainingRef.current - elapsed);
+
+      setIsPlaying(false);
+    } else {
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <div style={{ padding: 10 }}>
-      <h2 style={{ textAlign: "center", fontSize: "20px", marginTop: "0px" }}>
-        Showing {screen === "live" ? "Live Data" : "Graph"} for:
-        <span style={{ color: "#ff6600" }}> {name}</span>
-      </h2>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: "10px",
+          gap: 20,
+        }}
+      >
+        <h2 style={{ fontSize: "20px", margin: 0 }}>
+          Showing {screen === "live" ? "Live Data" : "Graph"} :
+          <span style={{ color: "#000000" }}> {name}</span>
+        </h2>
+
+        <button
+          onClick={togglePlayPause}
+          style={{
+            padding: "4px 20px",
+            borderRadius: "20px",
+            cursor: "pointer",
+            border: isPlaying ? "1px solid black" : "none",
+            background: isPlaying ? "white" : "black",
+            color: isPlaying ? "black" : "white",
+            fontWeight: "500",
+            fontSize: "14px",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+            <img
+              src={isPlaying ? pauseIcon : playIcon}
+              alt="icon"
+              style={{ width: "14px", height: "14px" }}
+            />
+            {isPlaying ? "Pause" : "Play"}
+          </div>
+        </button>
+      </div>
 
       {screen === "live" ? (
         liveLoading ? (

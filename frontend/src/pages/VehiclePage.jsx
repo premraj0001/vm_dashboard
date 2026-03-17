@@ -16,7 +16,7 @@ export default function VehiclePage() {
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState("find");
   const [liveInfo, setLiveInfo] = useState(null);
-
+ const [isDownloading, setIsDownloading] = useState(false);
   const handleFindData = () => {
     setActiveTab("find");
     handleSearch();
@@ -68,20 +68,48 @@ export default function VehiclePage() {
     }
   };
 
-  const exportToExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(data);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Data");
 
-    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-    const blob = new Blob([excelBuffer], {
-      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    });
+  // const exportToExcel = () => {
+  //   const worksheet = XLSX.utils.json_to_sheet(data);
+  //   const workbook = XLSX.utils.book_new();
+  //   XLSX.utils.book_append_sheet(workbook, worksheet, "Data");
 
-    const fileName = `TractorData_${tractorId}_${startDate}_${endDate}.xlsx`;
-    saveAs(blob, fileName);
+  //   const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+  //   const blob = new Blob([excelBuffer], {
+  //     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  //   });
+
+  //   const fileName = `TractorData_${tractorId}_${startDate}_${endDate}.xlsx`;
+  //   saveAs(blob, fileName);
+  // };
+const handleDownload = async () => {
+    if (!tractorId || !startDate || !endDate) return;
+    
+    setIsDownloading(true);
+    
+    try {
+      // Make sure this URL matches your backend port! Usually 5050 based on your code.
+      const res = await fetch("http://localhost:5050/data/export", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tractorId, startDate, endDate }),
+      });
+
+      const json = await res.json();
+
+      if (json.downloadUrl) {
+        // Automatically triggers the file download in the browser
+        window.location.href = json.downloadUrl; 
+      } else {
+        alert("Failed to generate download link. Please try again.");
+      }
+    } catch (err) {
+      console.log("Download Error:", err);
+      alert("Something went wrong during the download.");
+    } finally {
+      setIsDownloading(false);
+    }
   };
-
     return (
  <div className="vehiclepage">
 
@@ -191,9 +219,14 @@ export default function VehiclePage() {
       <div className="table-wrapper">
         <div className="table-header">
           <h3>Device Data</h3>
-          <button className="download-btn" onClick={exportToExcel}>
-            Download Excel
-          </button>
+         <button 
+                  className="download-btn" 
+                  onClick={handleDownload}
+                  disabled={isDownloading}
+                  style={{ opacity: isDownloading ? 0.6 : 1, cursor: isDownloading ? "not-allowed" : "pointer" }}
+                >
+                  {isDownloading ? "Generating CSV..." : "Download Full CSV"}
+                </button>
         </div>
 
         <div className="table-container">
