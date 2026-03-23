@@ -63,7 +63,8 @@ import TractorDetail from "./OTA/TractorDetail";
 import SelectTractorModel from "./OTA/SelectTractorModel";
 import UploadFirmware from "./OTA/UploadFirmware";
 import UploadManifest from "./OTA/UploadManifest";
-
+import AuthRoute from "./AuthRoute";
+import ServiceDetails from "./pages/ServiceDetails";
 
 export default function App() {
   return (
@@ -79,9 +80,11 @@ export default function App() {
       />
 
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route element={<AuthRoute />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
 
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<Dashboard />}>
@@ -90,7 +93,7 @@ export default function App() {
 
           <Route path="vehicle" element={<VehiclePage />} />
           <Route path="presentation" element={<Presentation />} />
-
+          <Route path="services" element={<ServiceDetails />} />
          <Route path="ota" element={<Ota />}>
               <Route path="manifesthistory" element={<ManifestHistory />} />
               <Route path="tractorselection" element={<SelectTractorModel />} />

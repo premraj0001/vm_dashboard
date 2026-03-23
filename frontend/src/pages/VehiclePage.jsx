@@ -6,6 +6,7 @@ import LiveData from "./LiveData.jsx";
 import "./VehiclePage.css";
 import { fetchVehicle, fetchData } from "../api.jsx";   
 import Graph from "./Graph.jsx";
+import dateIcon from "../assets/dateIcon.svg"
 
 export default function VehiclePage() {
   const [tractorId, setTractorId] = useState("");
@@ -14,7 +15,7 @@ export default function VehiclePage() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState("find");
+  const [activeTab, setActiveTab] = useState("");
   const [liveInfo, setLiveInfo] = useState(null);
  const [isDownloading, setIsDownloading] = useState(false);
   const handleFindData = () => {
@@ -137,22 +138,32 @@ const handleDownload = async () => {
           <div className="dates">
             <div className="start-date">
               <label>Start Date</label>
-              <input
-                className="select-dates"
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-              />
+                <div className="date-input-wrapper">
+                 <input
+                   type="date"
+                    value={startDate}
+                    onChange={(e) => {
+                   setStartDate(e.target.value);
+                    e.target.blur(); // 👈 close picker
+                     }}
+                />
+               <img src={dateIcon} alt="date" className="date-icon" />
+            </div>
             </div>
 
             <div className="end-date">
               <label>End Date</label>
-              <input
-                className="select-dates"
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-              />
+            <div className="date-input-wrapper">
+             <input
+             type="date"
+             value={endDate}
+             onChange={(e) => {
+            setEndDate(e.target.value);
+              e.target.blur(); // 👈 close picker
+            }}
+           />
+            <img src={dateIcon} alt="date" className="date-icon" />
+            </div>
             </div>
           </div>
 
